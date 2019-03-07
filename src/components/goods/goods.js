@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Selected from '../selected/selected';
+import Checkbox from '../checkbox/checkbox'
 import './goods.css';
 
 class Goods extends Component {
@@ -43,9 +44,10 @@ class Goods extends Component {
                             <td className={'goods-table__cell-cost'}>{this.cost(item.cost)}</td>
                             <td className={'goods-table__cell-comment'}>{this.comments(item.comment)}</td>
                             <td className={'goods-table__cell-cart'}>
-                                <input type="checkbox"
-                                       onChange={() => this.props.changeItemInCart(item.id)}
-                                       checked={this.props.cart.indexOf(item.id) !== -1}/>
+                                <Checkbox
+                                    onChange={this.props.changeItemInCart}
+                                    checked={this.props.cart.indexOf(item.id) !== -1}
+                                    id={item.id}/>
                                 </td>
                         </tr>))}
                     </tbody>
