@@ -1,0 +1,9 @@
+/* cart */
+.cart__goods {
+    font-weight: bold;
+}
+
+.cart__content {
+    font-size: 15px;
+    padding-top: 25px;
+}

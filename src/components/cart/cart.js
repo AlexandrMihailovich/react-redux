@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
+import Advantage from  '../advantage/advantage'
 import './cart.css'
 
 class Card extends Component {
     cartEmpty() {
-        return (<div className={'cart'}><h1>Корзина пуста</h1></div>);
+        return (<div className={'cart'}><h1>Корзина пуста</h1><Advantage/></div>);
     }
 
     cartNoEmpty() {
@@ -12,9 +13,10 @@ class Card extends Component {
         return (
             <div className={'cart'}>
                 <h1>Ваши товары</h1>
-                <div>
-                    Вы выбрали {length} {length > 1 ? 'товара' : 'товар'}: {goods}
+                <div className={'cart__content'}>
+                    Вы выбрали {length} {length > 1 ? 'товара' : 'товар'}: <span className={'cart__goods'}>{goods}</span>
                 </div>
+                <Advantage/>
             </div>
         );
     }
