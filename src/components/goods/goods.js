@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import {Link} from "react-router-dom";
-import './goods.css'
+import Selected from '../selected/selected';
+import './goods.css';
 
 class Goods extends Component {
 
@@ -35,10 +35,7 @@ class Goods extends Component {
                         </tr>))}
                     </tbody>
                 </table>
-                <div>
-                    Вы выбрали {this.props.cart.length} {this.props.cart.length > 1 ? 'товара' : 'товар'}
-                    <Link className={'cart-link'} to='/cart'>Перейти в корзину</Link>
-                </div>
+                <Selected count={this.props.cart.length}/>
             </div>
         );
     }
