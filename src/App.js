@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {Switch, Route, HashRouter} from 'react-router-dom';
 import { Provider } from 'react-redux';
 import GoodsContainer from './containers/Goods';
-import CardContainer from './containers/Cart';
+import CartContainer from './containers/Cart';
 import store from './store/store'
 import './App.css';
 
@@ -16,8 +16,8 @@ class App extends Component {
               <Switch>
                 <Route exact path='/'
                        component={GoodsContainer}/>
-                <Route path='/'
-                       component={CardContainer}/>
+                <Route path='/cart'
+                       component={CartContainer}/>
               </Switch>
             </main>
           </HashRouter>
