@@ -3,35 +3,50 @@ import Selected from '../selected/selected';
 import './goods.css';
 
 class Goods extends Component {
+    comments(count) {
+        if(count > 0) {
+            return (<span><span className={'comment'}>{/* comment icon */}</span>{count}</span>);
+        }
+    }
+
+    trend(trend) {
+        return (<span className={trend >= 0 ? 'color-green' : 'color-red'}>{trend}</span>);
+    }
+
+    cost(cost) {
+        return (<span className={'goods-cost'}>{String.fromCharCode(8381).repeat(cost)}</span>);
+    }
 
     render() {
         return (
             <div className={'goods'}>
                 <h1>Список товаров</h1>
-                <table>
-                    <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Название</th>
-                        <th>Рейтинг</th>
-                        <th>Тренд</th>
-                        <th>Ценовой сегмент</th>
-                        <th>Отзывы покупателей</th>
-                        <th>В корзину</th>
+                <table className={'goods-table'}>
+                    <thead className={'goods-table__header'}>
+                    <tr className={'goods-table__row'}>
+                        <th className={'goods-table__cell-id'}>#</th>
+                        <th className={'goods-table__cell-name'}>Название</th>
+                        <th className={'goods-table__cell-rate'}>Рейтинг</th>
+                        <th className={'goods-table__cell-trend'}>Тренд</th>
+                        <th className={'goods-table__cell-cost'}>Ценовой сегмент</th>
+                        <th className={'goods-table__cell-comment'}>Отзывы покупателей</th>
+                        <th className={'goods-table__cell-cart'}>В корзину</th>
                     </tr>
                     </thead>
-                    <tbody>
+                    <tbody className={'goods-table__body'}>
                     {this.props.goods.map((item) => (
-                        <tr key={'row-'+item.id}>
-                            <td>{item.id}</td>
-                            <td>{item.title}</td>
-                            <td>{item.rate}</td>
-                            <td>{item.trend}</td>
-                            <td>{item.cost}</td>
-                            <td>{item.comment}</td>
-                            <td><input type="checkbox"
+                        <tr className={'goods-table__row'} key={'row-'+item.id}>
+                            <td className={'goods-table__cell-id'}>{item.id}</td>
+                            <td className={'goods-table__cell-name'}>{item.title}</td>
+                            <td className={'goods-table__cell-rate'}>{item.rate}</td>
+                            <td className={'goods-table__cell-trend'}>{this.trend(item.trend)}</td>
+                            <td className={'goods-table__cell-cost'}>{this.cost(item.cost)}</td>
+                            <td className={'goods-table__cell-comment'}>{this.comments(item.comment)}</td>
+                            <td className={'goods-table__cell-cart'}>
+                                <input type="checkbox"
                                        onChange={() => this.props.changeItemInCart(item.id)}
-                                       checked={this.props.cart.indexOf(item.id) !== -1}/></td>
+                                       checked={this.props.cart.indexOf(item.id) !== -1}/>
+                                </td>
                         </tr>))}
                     </tbody>
                 </table>
