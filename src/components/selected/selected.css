@@ -1,0 +1,47 @@
+/*select box*/
+.select-box {
+    background: #4b4149;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    color: #fff;
+    text-align: center;
+    line-height: 4.2;
+    transition: .2s;
+    font-size: 14px;
+    font-weight: bold;
+}
+.select-box-red {
+    background: #de474b;
+}
+.select-box .cart-link {
+    display: inline-block;
+    text-decoration: none;
+    background: #fff;
+    border-radius: 20px;
+    padding: 11px 32px;
+    line-height: normal;
+    color: #000;
+    text-transform: uppercase;
+    font-size: 14px;
+    margin-left: 20px;
+    transition: .2s;
+    font-weight: normal;
+}
+.select-box .cart-link:hover {
+    box-shadow: inset 0 0 10px 0 rgba(50, 50, 50, 0.75);
+
+}
+.select-box .count-in-cart {
+    background: #000;
+    border-radius: 16px;
+    letter-spacing: 2px;
+    text-align: center;
+    display: inline-block;
+    line-height: 1.7em;
+    width: 1.7em;
+}
+
+
+
